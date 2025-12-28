@@ -1,5 +1,5 @@
 from langchain_core.prompts import PromptTemplate
-from npmai import Grok
+from npmai import Ollama
 from langchain_core.output_parsers import StrOutputParser
 
 prompt = PromptTemplate(
@@ -9,7 +9,10 @@ prompt = PromptTemplate(
 
 user_actual_query = input("Describe the task you want to automate with NPM AutoCode AI:")
 
-llm = Grok()
+llm = Ollama(
+    model="codeLLaMA-Instruct 7b",
+    temperature=1
+)
 
 parser=StrOutputParser()
 
